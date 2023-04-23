@@ -1,7 +1,7 @@
 const Job = require("../../model/job/Job");
 const User = require("../../model/user/User");
 const expressAsyncHandler = require("express-async-handler");
-const validateMongodbId = require("../../utils/validateMongodbID");
+const validateMongodbId = require("../../utils/validatemongodbID");
 const fs = require("fs");
 const cloudinaryUploadImg = require("../../utils/cloudinary");
 /* const blockUser = require("../../utils/blockUser"); */
