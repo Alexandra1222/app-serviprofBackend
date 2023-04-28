@@ -391,7 +391,7 @@ const generateVerificationTokenController = expressAsyncHandler(async (req, res)
     console.log("token de verificacion",verificationToken);
     console.log("despues de guardar el token en la base de datos")
     //build your message
-    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprofbackend.onrender.com/verify-account/${verificationToken}">Click para verificar su Cuenta</a>`;
+    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprofbackend.onrender.com/verifyaccount/${verificationToken}">Click para verificar su Cuenta</a>`;
     console.log("despues de definir el url que se enviara al mail");
     const msg = {
       to: user?.email,
