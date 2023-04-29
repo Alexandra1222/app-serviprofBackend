@@ -17,7 +17,7 @@ const userRegisterController = expressAsyncHandler(async (req, res) => {
     
   //Check if user Exist
     const userExists = await User.findOne({ email: req?.body?.email });
-    if (userExists) throw new Error("User already exists");
+    if (userExists) throw new Error("Este usuario ya existe ");
     try {
       //register user
 const user = await User.create({
@@ -391,7 +391,7 @@ const generateVerificationTokenController = expressAsyncHandler(async (req, res)
     console.log("token de verificacion",verificationToken);
     console.log("despues de guardar el token en la base de datos")
     //build your message
-    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprofbackend.onrender.com/verifyaccount/${verificationToken}">Click para verificar su Cuenta</a>`;
+    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprofbackend.onrender.com/api/users/verifyaccount/${verificationToken}">Click para verificar su Cuenta</a>`;
     console.log("despues de definir el url que se enviara al mail");
     const msg = {
       to: user?.email,
@@ -449,7 +449,7 @@ const forgetPasswordTokenController = expressAsyncHandler(async(req,res)=>{
     await user.save();
 
     //build your message
-    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje<a href="https://appserviprofbackend.onrender.com/reset-password/${token}">Click para Resetear Contraseña</a>`;
+    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje<a href="https://appserviprofbackend.onrender.com/api/users/reset-password/${token}">Click para Resetear Contraseña</a>`;
     const msg = {
       to: email,
       from: "alexandrasalgan@gmail.com",
