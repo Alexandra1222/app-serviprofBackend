@@ -449,7 +449,7 @@ const forgetPasswordTokenController = expressAsyncHandler(async(req,res)=>{
     await user.save();
 
     //build your message
-    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje<a href="https://appserviprofbackend.onrender.com/api/users/reset-password/${token}">Click para Resetear Contraseña</a>`;
+    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje<a href="https://appserviprofbackend.onrender.com/api/users/resetpassword/${token}">Click para Resetear Contraseña</a>`;
     const msg = {
       to: email,
       from: "alexandrasalgan@gmail.com",
