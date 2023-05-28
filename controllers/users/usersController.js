@@ -391,7 +391,7 @@ const generateVerificationTokenController = expressAsyncHandler(async (req, res)
     console.log("token de verificacion",verificationToken);
     console.log("despues de guardar el token en la base de datos")
     //build your message
-    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprofbackend.onrender.com/api/users/verifyaccount/${verificationToken}">Click para verificar su Cuenta</a>`;
+    const resetURL = `Si se le solicitó que verificara su cuenta, verifíquela ahora dentro de 10 minutos; de lo contrario, ignore este mensaje <a href="https://appserviprof.netlify.app/verifyaccount/${verificationToken}">Click para verificar su Cuenta</a>`;
     console.log("despues de definir el url que se enviara al mail");
     const msg = {
       to: user?.email,
@@ -421,7 +421,7 @@ const accountVerificationController = expressAsyncHandler(async (req, res) => {
     accountVerificationToken: hashedToken,
     accountVerificationTokenExpires: { $gt: new Date() },
   });
-  if (!userFound) throw new Error("Token expired, try again later");
+  if (!userFound) throw new Error("El token expiró, inténtelo mas tarde");
   //update the proprt to true
   userFound.isAccountVerified = true;
   userFound.accountVerificationToken = undefined;
